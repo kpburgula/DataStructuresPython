@@ -63,6 +63,29 @@ class CircularQueue:
             return ele
 
 
+class Dequeue:
+    def __init__(self):
+        self._data = []
+
+    def __len__(self):
+        return len(self._data)
+
+    def add_front(self, item):
+        self._data.insert(0, item)
+
+    def add_rear(self, item):
+        self._data.append(item)
+
+    def remove_front(self):
+        return self._data.pop(0)
+
+    def remove_rear(self):
+        return self._data.pop()
+
+    def show(self):
+        return self._data
+
+
 q = Queue()
 print(q.dequeue())
 q.enqueue('item1')
@@ -85,3 +108,12 @@ print(cq.dequeue())
 print(cq.dequeue())
 print(cq.enqueue('item4'))
 print(cq.show_queue())
+
+de = Dequeue()
+print(len(de))
+de.add_front('item1')
+de.add_front('item2')
+de.add_rear('item3')
+print(de.show(), len(de))
+print(de.remove_front())
+print(de.show(), len(de))
