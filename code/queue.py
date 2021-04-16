@@ -1,3 +1,57 @@
+class Node:
+  def __init__(self,val):
+    self.data = val
+    self.next = None
+
+class Queues:
+  def __init__(self):
+    self.first = None
+    self.last = None
+    self.length = 0
+
+  def __repr__(self):
+    return str(self._printq())
+
+  def _printq(self):
+    curr_node = self.first
+    arr = []
+    while(curr_node!=None):
+      arr.append(curr_node.data)
+      curr_node = curr_node.next
+    return arr
+
+  def enqueue(self,val):
+    new_node = Node(val)
+    if self.first is None:
+      self.first = new_node
+      self.last = new_node
+      self.length+=1
+
+    else:
+      self.last.next = new_node
+      self.last = new_node
+      self.length+=1
+
+  def dequeue(self):
+    if self.first is not None:
+      first_item = self.first
+      self.first = self.first.next
+      self.length-=1
+      return first_item.data
+    else:
+      return None
+    
+  def peek(self):
+    return self.first
+
+q = Queues()
+q.enqueue('first item')
+q.enqueue('second item')
+print(q.dequeue())
+q.enqueue('third item')
+print(q)
+
+
 class Queue:
     def __init__(self):
         self._data = []
@@ -86,34 +140,34 @@ class Dequeue:
         return self._data
 
 
-q = Queue()
-print(q.dequeue())
-q.enqueue('item1')
-q.enqueue('item2')
-q.enqueue('item3')
-print(q.show())
-q.dequeue()
-print(q.show())
+# q = Queue()
+# print(q.dequeue())
+# q.enqueue('item1')
+# q.enqueue('item2')
+# q.enqueue('item3')
+# print(q.show())
+# q.dequeue()
+# print(q.show())
 
-cq = CircularQueue(size=3)
-print(cq.dequeue())
-cq.enqueue('item1')
-cq.enqueue('item2')
-cq.enqueue('item3')
-print(cq.show_queue())
-print(cq.enqueue('item4'))
-print(cq.dequeue())
-print(cq.dequeue())
-print(cq.dequeue())
-print(cq.dequeue())
-print(cq.enqueue('item4'))
-print(cq.show_queue())
+# cq = CircularQueue(size=3)
+# print(cq.dequeue())
+# cq.enqueue('item1')
+# cq.enqueue('item2')
+# cq.enqueue('item3')
+# print(cq.show_queue())
+# print(cq.enqueue('item4'))
+# print(cq.dequeue())
+# print(cq.dequeue())
+# print(cq.dequeue())
+# print(cq.dequeue())
+# print(cq.enqueue('item4'))
+# print(cq.show_queue())
 
-de = Dequeue()
-print(len(de))
-de.add_front('item1')
-de.add_front('item2')
-de.add_rear('item3')
-print(de.show(), len(de))
-print(de.remove_front())
-print(de.show(), len(de))
+# de = Dequeue()
+# print(len(de))
+# de.add_front('item1')
+# de.add_front('item2')
+# de.add_rear('item3')
+# print(de.show(), len(de))
+# print(de.remove_front())
+# print(de.show(), len(de))
