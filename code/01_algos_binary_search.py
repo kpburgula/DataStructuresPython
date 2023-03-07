@@ -27,5 +27,5 @@ def binary_search(n, x):
 # x = 70
 # binary_search(n, x)
 # Array of strings
-n = ["Burgula", "Krishna", "Pradeep"]
-binary_search(n, "Pradeep")
+n = ["boat", "cow", "pradeep", "quail", "yacht", "Zebra", "zoo"]
+binary_search(n, "Zebra")
